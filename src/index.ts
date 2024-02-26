@@ -1,10 +1,12 @@
 import express, { Express } from "express";
+import cors from "cors";
 import connectDB from "./config/mongoose";
 import router from "./routes/Posts";
 
 const app: Express = express();
 const port: string | number = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (_, res) => {
