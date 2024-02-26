@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-interface Post {
+export interface Post {
   _id: Schema.Types.ObjectId;
   title: string;
   content: string;
