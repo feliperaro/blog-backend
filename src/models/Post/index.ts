@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-export interface Post {
+export interface IPost {
   _id: Schema.Types.ObjectId;
   title: string;
   content: string;
@@ -10,7 +10,7 @@ export interface Post {
   updated_at: Date;
 }
 
-const postSchema = new Schema<Post>({
+const postSchema = new Schema<IPost>({
   title: { type: String, required: true },
   content: { type: String, required: true },
   category: { type: String },
@@ -19,4 +19,4 @@ const postSchema = new Schema<Post>({
   updated_at: { type: Date, default: Date.now },
 });
 
-export default model<Post>("Post", postSchema);
+export default model<IPost>("Post", postSchema);
