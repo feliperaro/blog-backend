@@ -18,7 +18,7 @@ export const createPost = async (req: Request, res: Response) => {
   }
 };
 
-export const deleteById = async (req: Request, res: Response) => {
+export const deletePostById = async (req: Request, res: Response) => {
   try {
     const { post_id } = req.params;
     if (!mongoose.Types.ObjectId.isValid(post_id)) {
