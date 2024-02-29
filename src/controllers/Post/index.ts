@@ -36,6 +36,26 @@ export const deletePostById = async (req: Request, res: Response) => {
   }
 };
 
+export const editPostById = async (req: Request, res: Response) => {
+  try {
+    const { post_id } = req.params;
+    const updatedPostData = req.body;
+
+    const post = await Post.findByIdAndUpdate(post_id, updatedPostData, {
+      new: true,
+    });
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    post.updated_at = new Date(Date.now());
+    const updatedPost = await post.save();
+    res.status(200).json(updatedPost);
+  } catch (error) {
+    handleErrors(error, res);
+  }
+};
+
 export const getPostById = async (req: Request, res: Response) => {
   try {
     const { post_id } = req.params;
