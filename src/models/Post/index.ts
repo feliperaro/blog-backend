@@ -1,5 +1,9 @@
 import { Schema, model } from "mongoose";
 
+type Tag = {
+  label: string;
+};
+
 export interface IPost {
   _id: Schema.Types.ObjectId;
   title: string;
