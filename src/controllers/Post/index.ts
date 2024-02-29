@@ -3,7 +3,7 @@ import Post, { IPost } from "../../models/Post";
 import mongoose from "mongoose";
 
 const handleErrors = (err: any, res: Response) => {
-  console.error(err.stack);
+  console.error("error", err.message, err.stack);
   res.status(500).json({ message: "Server error" });
 };
 
