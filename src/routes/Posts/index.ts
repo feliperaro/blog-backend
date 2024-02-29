@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   createPost,
   deletePostById,
+  editPostById,
   getAllPosts,
   getPostById,
 } from "../../controllers/Post";
@@ -12,5 +13,6 @@ router.delete("/:post_id", deletePostById);
 router.get("/", getAllPosts);
 router.get("/:post_id", getPostById);
 router.post("/", createPost);
+router.put("/:post_id", editPostById);
 
 export default router;
